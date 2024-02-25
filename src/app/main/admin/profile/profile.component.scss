@@ -1,0 +1,23 @@
+#admin-profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.admin-profile-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .admin-profile-card {
+    max-width: 300px;
+  }
+}

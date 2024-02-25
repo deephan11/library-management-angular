@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header">
+    <div class="title dialog-title">
+      <span>{{ this.data ? "Edit Book" : "Add Book" }}</span>
+    </div>
+    <button mat-icon-button (click)="close()" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div id="add-edit-book" class="add-edit-card">
+    <form [formGroup]="form">
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Code </mat-label>
+          <input matInput type="text" formControlName="code" required>
+          <mat-error>Code is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Name </mat-label>
+          <input matInput type="text" formControlName="name" required>
+          <mat-error>Name is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Category </mat-label>
+          <input matInput type="text" formControlName="category" required>
+          <mat-error>Category is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="" style="display: flex;justify-content: center;">
+        <button mat-raised-button color="primary" class="button" (click)="handleAddOrUpdate()">{{this.data ? 'Update' : 'Add'}}</button>
+      </div>
+
+    </form>
+</div>

@@ -1,0 +1,91 @@
+<div id="login-form">
+  <mat-card class="login-card">
+    <form [formGroup]="form" *ngIf="isLogin">
+      <h2 style="display: flex;justify-content: center;color: white;">LOGIN TO YOUR ACCOUNT</h2>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text">
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="!form.get('email')?.hasError('required') &&
+                    form.get('email')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Password </mat-label>
+          <input matInput type="{{hidePassword ? 'password':'text'}}" formControlName="password" required>
+          <mat-error>Password is required</mat-error>
+          <mat-icon matSuffix (click)="hidePassword=!hidePassword">
+            {{hidePassword ?'visibility_off' : 'visibility'}}
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="" style="display: flex;justify-content: center;">
+        <button mat-raised-button color="primary" class="button" (click)="handleLogin()">Login</button>
+      </div>
+    </form>
+
+    <form [formGroup]="form" *ngIf="isRegister">
+      <h2 style="display: flex;justify-content: center;color: white;">CREATE YOUR ACCOUNT</h2>
+
+      <div id="input-container">
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="user">User</mat-option>
+        </mat-select>
+        <mat-error>Role is required</mat-error>
+      </mat-form-field>
+    </div>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text">
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="!form.get('email')?.hasError('required') &&
+                    form.get('email')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div id="input-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Password </mat-label>
+          <input matInput type="{{hidePassword ? 'password':'text'}}" formControlName="password" required>
+          <mat-error>Password is required</mat-error>
+          <mat-icon matSuffix (click)="hidePassword=!hidePassword">
+            {{hidePassword ?'visibility_off' : 'visibility'}}
+          </mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="" style="display: flex;justify-content: center;">
+        <button mat-raised-button color="primary" class="button" (click)="handleRegister()">Register</button>
+      </div>
+    </form>
+  </mat-card>
+
+  <div style="margin-top: 16px;" *ngIf="isLogin">
+    <p>Don't have an account? <a (click)="navigateToRegister()" style="text-decoration: underline;cursor: pointer;">Register here</a></p>
+  </div>
+
+  <div style="margin-top: 16px;" *ngIf="isRegister">
+    <p>Have an account? <a (click)="navigateToLogin()" style="text-decoration: underline;cursor: pointer;">Login</a></p>
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+.toolbar {
+  background-color: #95b3eb;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbar span {
+  color: #4B0082;
+}
+
+@media screen and (max-width: 600px) {
+  .toolbar {
+    height: 15vh;
+  }
+}

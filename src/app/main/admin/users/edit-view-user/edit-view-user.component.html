@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header">
+    <div class="title dialog-title">
+      <span>{{ "Edit Limit and View" }}</span>
+    </div>
+    <button mat-icon-button (click)="close()" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div id="view-edit-book" class="view-edit-card">
+  <form [formGroup]="form">
+
+    <div class="no-books" *ngIf="bookData.length===0">
+      <p style="color: white;">No books borrowed</p>
+    </div>
+
+    <div *ngIf="bookData.length > 0" class="books-container">
+      <div class="books" *ngFor="let book of bookData">
+        <div class="book">
+          <p class="book-detail">Code - {{ book.code }}</p>
+          <p class="book-detail">Name - {{ book.name }}</p>
+          <p class="book-detail">Category - {{ book.category }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="input-container">
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Borrow Limit </mat-label>
+        <input matInput min="0" type="number" formControlName="limit" required>
+        <mat-error>Limit is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div style="display: flex;justify-content: center;gap: 16px;">
+      <button [disabled]="form.value.limit===data.limit" mat-raised-button color="primary" class="button"
+        (click)="handleUpdate()">Update</button>
+      <button mat-raised-button color="warn" class="button" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

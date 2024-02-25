@@ -1,0 +1,14 @@
+<mat-toolbar class="toolbar">
+  <span [ngStyle]="{'color': page==='books' ? 'red' : '#4B0082'}" style="cursor: pointer;"
+    (click)="handlePage('books')">Books</span>
+  <span [ngStyle]="{'color': page==='users' ? 'red' : '#4B0082'}" style="cursor: pointer;"
+    (click)="handlePage('users')">Users</span>
+    <span [ngStyle]="{'color': page==='profile' ? 'red' : '#4B0082'}" style="cursor: pointer;"
+    (click)="handlePage('profile')">Profile</span>
+    <span style="cursor: pointer;color: #4B0082;"
+    (click)="handleLogOut()">Logout</span>
+</mat-toolbar>
+
+<app-profile *ngIf="page==='profile'"></app-profile>
+<app-books *ngIf="page==='books'"></app-books>
+<app-users *ngIf="page==='users'"></app-users>

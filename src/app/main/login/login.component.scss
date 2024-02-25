@@ -1,0 +1,23 @@
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .login-card {
+    max-width: 300px;
+  }
+}

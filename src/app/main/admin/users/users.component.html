@@ -1,0 +1,57 @@
+<div id="admin-user-page">
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name ? element.name : '-'}} </td>
+      </ng-container>
+
+      <!-- Age Column -->
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>Age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age ? element.age : '-'}} </td>
+      </ng-container>
+
+      <!-- Gender Column -->
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender ? element.gender : '-'}} </td>
+      </ng-container>
+
+      <!-- Limit Column -->
+      <ng-container matColumnDef="limit">
+        <th mat-header-cell *matHeaderCellDef> Borrow Limit </th>
+        <td mat-cell *matCellDef="let element"> {{element.limit}} </td>
+      </ng-container>
+
+      <!-- Remaining borrow Column -->
+      <ng-container matColumnDef="borrowed_limit">
+        <th mat-header-cell *matHeaderCellDef> Remaining Borrow Limit </th>
+        <td mat-cell *matCellDef="let element"> {{element.limit - element.borrowed_limit}} </td>
+      </ng-container>
+
+      <!-- Edit and View Column -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Edit borrow limit & View borrow details </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" class="button"
+            (click)="handleEdit(element)">Edit & View</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label="Select page of user elements">
+  </mat-paginator>
+
+</div>
