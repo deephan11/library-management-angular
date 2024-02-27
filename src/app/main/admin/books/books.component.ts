@@ -60,7 +60,7 @@ export class BooksComponent implements OnInit {
     });
 
     alertPopup.componentInstance.confirmHead = "Return book";
-    alertPopup.componentInstance.sufixConfirmMessage = "Would you like to borrow" + event.name + "?";
+    alertPopup.componentInstance.sufixConfirmMessage = "Would you like to borrow " + event.name + "?";
     alertPopup.afterClosed().subscribe(async alertPopupResponse => {
       if (alertPopupResponse) {
         const profileData = await this.adminService.getProfileData(window.localStorage.getItem('id'));

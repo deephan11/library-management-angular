@@ -33,7 +33,7 @@ export class BorrowedComponent implements OnInit {
     });
 
     alertPopup.componentInstance.confirmHead = "Borrow book";
-    alertPopup.componentInstance.sufixConfirmMessage = "Would you like to borrow" + event.name + "?";
+    alertPopup.componentInstance.sufixConfirmMessage = "Would you like to borrow " + event.name + "?";
     alertPopup.afterClosed().subscribe(async alertPopupResponse => {
       if (alertPopupResponse) {
         const profileData = await this.userService.getProfileData(window.localStorage.getItem('id'));
