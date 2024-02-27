@@ -3,12 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-}
-
-.header{
-  display: flex;
-  justify-content: space-between;
+  min-height: 85vh;
 }
 
 .add-edit-card {
@@ -26,3 +21,18 @@
     max-width: 300px;
   }
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-toolbar-row {
+  width: 100%;
+}
+

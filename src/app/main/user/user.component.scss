@@ -1,16 +1,33 @@
 .toolbar {
   background-color: #95b3eb;
-  height: 10vh;
+  min-height: 10vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
 }
 
 .toolbar span {
   color: #4B0082;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 600px) {
   .toolbar {
-    height: 15vh;
+    min-height: 15vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .toolbar-right {
+    width: 100%;
+    justify-content: space-around;
   }
 }

@@ -1,4 +1,6 @@
 <mat-toolbar class="toolbar">
+  <span>Library Management System</span>
+  <div class="toolbar-right">
   <span [ngStyle]="{'color': page==='books' ? 'red' : '#4B0082'}" style="cursor: pointer;"
     (click)="handlePage('books')">Available</span>
   <span [ngStyle]="{'color': page==='borrowed' ? 'red' : '#4B0082'}" style="cursor: pointer;"
@@ -7,6 +9,7 @@
     (click)="handlePage('profile')">Profile</span>
     <span style="cursor: pointer;color: #4B0082;"
     (click)="handleLogOut()">Logout</span>
+  </div>
 </mat-toolbar>
 
 <app-profile *ngIf="page==='profile'"></app-profile>

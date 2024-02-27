@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{confirmHead }}</h2>
+<mat-dialog-content>
+  {{sufixConfirmMessage}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="handleEvent(false)">No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="handleEvent(true)">Ok</button>
+</mat-dialog-actions>
